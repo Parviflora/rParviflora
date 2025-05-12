@@ -172,6 +172,15 @@ definir_id_inpn <- function(espece) {
   res.json <- jsonlite::fromJSON(res.content, flatten = TRUE)
   taxa <- res.json$`_embedded`$taxa
 
+  if(is.null(taxa)){
+    return(
+      list(
+        "id" = NA,
+        "nv" = NA
+      )
+    )
+  }
+
   # Identifier les sous-especes, varietes et forme pour ne pas les prendre en compte
   aIgnorer <- grepl("nom\\. illeg\\.", taxa$authority)
 
