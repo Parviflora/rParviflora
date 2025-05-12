@@ -1,0 +1,19 @@
+Package: rParviflora
+Title: R package made by Parviflora
+Version: 1.0.0
+Authors@R: 
+    person("Martin", "DAVY", , "martindavy25@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-8004-2045"))
+Description: rParviflora allows for the automatic extraction of statuses 
+  (red list / protection / ZNIEFF / regulatory) available in the INPN database 
+  (https://inpn.mnhn.fr) using its REST API.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+LazyData: true
+Depends:
+    R (>= 4.0.0)
+Imports:
+    httr,
+    jsonlite
