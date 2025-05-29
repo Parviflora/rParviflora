@@ -45,7 +45,7 @@ anciennes_nouvelles_regions <- utils::data("anciennes_nouvelles_regions", packag
 #' res <- extraction_IPNI(espece, departement)
 #' }
 #' @export
-extraction_INPN = function(espece, departement){
+extraction_INPN = function(espece, departement, cal_enjeu = FALSE){
   if(grepl(" sp\\.", espece)){
     return(data.frame("espece" = espece))
   }
@@ -106,7 +106,9 @@ extraction_INPN = function(espece, departement){
   lr_reg = ifelse(length(index_lr_reg) == 1, res.df[,index_lr_reg], NA)
   reg_nat = res.df$reg.nat
 
-  res.df$enjeux = enjeu(lr_nat, lr_reg, reg_nat)
+  if(cal_enjeu){
+    res.df$enjeux = enjeu(lr_nat, lr_reg, reg_nat)
+  }
 
   return(res.df)
 }
