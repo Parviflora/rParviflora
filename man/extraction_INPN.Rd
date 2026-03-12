@@ -5,13 +5,15 @@
 \title{Cette fonction permet de recuperer plusieurs informations d'interets de l'INPN sur une
 espece donnee en interrogeant les API REST de l'INPN et de OpenObs}
 \usage{
-extraction_INPN(espece, departement)
+extraction_INPN(espece, departement, cal_enjeu = FALSE)
 }
 \arguments{
 \item{espece}{Une chaine de caracteres correspondant au nom scientifique de l'espece.}
 
 \item{departement}{Une chaine de caracteres specifiant le nom du departement pour lequel les
 statuts doivent etre recuperes.}
+
+\item{cal_enjeu}{Booleen indiquant s'il faut calculer l'enjeu ou non}
 }
 \value{
 Un data.frame d'une ligne contenant :
@@ -36,7 +38,7 @@ espece donnee en interrogeant les API REST de l'INPN et de OpenObs
 }
 \details{
 \itemize{
-\item Pour les colonnes \code{taxref} et \code{nom.vernaculaire} voir \code{\link{definir_id_inpn}}.
+\item Pour les colonnes \code{taxref} et \code{nom.vernaculaire} voir \code{\link{match_inpn}}.
 \item Pour \code{dep.reg}, \code{dep.nat} et \code{reg.nat} voir \code{\link{calculer_ratios}}.
 \item Pour \code{Les Statuts ...} voir \code{\link{recuperer_statuts}}.
 \item Pour \code{enjeux} voir \code{\link{enjeu}}

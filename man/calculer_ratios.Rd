@@ -41,7 +41,7 @@ la fonction s'arrete et invite l'utilisateur a les installer.
 \examples{
 \dontrun{
 # Exemple d'utilisation
-id = definir_id_inpn("Helianthemum ledifolium")
+id = match_inpn("Helianthemum ledifolium")
 
 result <- calculer_ratios(id$id, departement = "aude")
 print(result)

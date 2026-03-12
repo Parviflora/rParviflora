@@ -36,7 +36,7 @@ la fonction s'arrete et invite l'utilisateur a les installer.
 \examples{
 \dontrun{
 # Exemple d'utilisation
-id = definir_id_inpn("Helianthemum ledifolium")
+id = match_inpn("Helianthemum ledifolium")
 
 result <- recuperer_statuts(id$id, departement = "aude")
 print(result)
