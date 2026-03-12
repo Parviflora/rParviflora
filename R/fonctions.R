@@ -26,7 +26,7 @@ anciennes_nouvelles_regions <- utils::data("anciennes_nouvelles_regions", packag
 #'
 #' @details
 #'  \itemize{
-#'    \item Pour les colonnes \code{taxref} et \code{nom.vernaculaire} voir \code{\link{definir_id_inpn}}.
+#'    \item Pour les colonnes \code{taxref} et \code{nom.vernaculaire} voir \code{\link{match_inpn}}.
 #'    \item Pour \code{dep.reg}, \code{dep.nat} et \code{reg.nat} voir \code{\link{calculer_ratios}}.
 #'    \item Pour \code{Les Statuts ...} voir \code{\link{recuperer_statuts}}.
 #'    \item Pour \code{enjeux} voir \code{\link{enjeu}}
@@ -50,7 +50,7 @@ extraction_INPN = function(espece, departement, cal_enjeu = FALSE){
     return(data.frame("espece" = espece))
   }
 
-  id = definir_id_inpn(espece)
+  id = match_inpn(espece)
   if(is.na(id$id)){
     return(data.frame("espece" = espece))
   }
@@ -144,7 +144,7 @@ extraction_INPN = function(espece, departement, cal_enjeu = FALSE){
 #' @examples
 #' \dontrun{
 #' # Exemple d'utilisation
-#' resultat <- definir_id_inpn("Helianthemum ledifolium")
+#' resultat <- match_inpn("Helianthemum ledifolium")
 #' print(resultat$id)  # Affiche l'ID INPN
 #' print(resultat$nv)  # Affiche le nom vernaculaire
 #' }
@@ -152,7 +152,7 @@ extraction_INPN = function(espece, departement, cal_enjeu = FALSE){
 #' @seealso \code{\link[httr]{GET}}, \code{\link[jsonlite]{fromJSON}}
 #'
 #' @export
-definir_id_inpn <- function(espece) {
+match_inpn <- function(espece) {
   # chargement des packages
   if (!requireNamespace("httr", quietly = TRUE) || !requireNamespace("jsonlite", quietly = TRUE)) {
     stop("Please install the following packages : httr, jsonlite")
@@ -255,7 +255,7 @@ definir_id_inpn <- function(espece) {
 #' @examples
 #' \dontrun{
 #' # Exemple d'utilisation
-#' id = definir_id_inpn("Helianthemum ledifolium")
+#' id = match_inpn("Helianthemum ledifolium")
 #'
 #' result <- recuperer_statuts(id$id, departement = "aude")
 #' print(result)
@@ -361,7 +361,7 @@ recuperer_statuts <- function(id, departement) {
 #' @examples
 #' \dontrun{
 #' # Exemple d'utilisation
-#' id = definir_id_inpn("Helianthemum ledifolium")
+#' id = match_inpn("Helianthemum ledifolium")
 #'
 #' result <- calculer_ratios(id$id, departement = "aude")
 #' print(result)
