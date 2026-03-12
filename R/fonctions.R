@@ -7,6 +7,7 @@ anciennes_nouvelles_regions <- utils::data("anciennes_nouvelles_regions", packag
 #' @param espece Une chaine de caracteres correspondant au nom scientifique de l'espece.
 #' @param departement Une chaine de caracteres specifiant le nom du departement pour lequel les
 #'   statuts doivent etre recuperes.
+#' @param cal_enjeu Booleen indiquant s'il faut calculer l'enjeu ou non
 #'
 #' @return Un data.frame d'une ligne contenant :
 #'   \itemize{
